@@ -4,10 +4,26 @@
 
 <h1>Projects</h1>
 
-{% for project in projects %}
-<ul>
-    <li><a href="{% url "project" project.id %}">{{ project }}</a></li>
-</ul>
-{% endfor %}
+<table>
+    <tr>
+        <th>Project</th>
+        <th>Positive Votes</th>
+        <th>Ration</th>
+        <th>Created</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for project in projects %}
+    <tr>
+        <td>{{ project.title }}</td>
+        <td>{{ project.vote_total }}%</td>
+        <td>{{ project.vote_ratio }}</td>
+        <td>{{ project.created }}</td>
+        <td><a href="{% url "project" project.id %}">view</a></td>
+        <td><a href="{% url "delete" project.id %}">delete</a></td>
+        <td><a href="{% url "update" project.id %}">edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
 
 {% endblock content %}
