@@ -2,25 +2,6 @@
 
 <h1>{{ project.title }}</h1>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Project</th>
-        <th>Positive Votes</th>
-        <th>Ration</th>
-        <th>Created</th>
-    </tr>
-    {% for tag in project.tags.all %}
-    <tr>
-        <td>{{ project.id }}</td>
-        <td>{{ project.title }}</td>
-        <td>{{ project.vote_total }}%</td>
-        <td>{{ project.vote_ratio }}</td>
-        <td>{{ project.created }}</td>
-    </tr>
-    {% endfor %}
-</table>
-
 <hr />
     {% for tag in project.tags.all %}
     <span>{{ tag }}</span>
