@@ -18,7 +18,7 @@ def project(request, pk):
 
 
 def create_project(request):
-    context = {'form': ProjectForm}
+    form = ProjectForm()
 
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES)
@@ -26,6 +26,7 @@ def create_project(request):
             form.save()
             return redirect('projects')
 
+    context = {'form': form}
     return render(request, 'projects/project-form.html', context)
 
 
