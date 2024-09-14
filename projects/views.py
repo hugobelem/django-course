@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .models import Project
+from .forms import ProjectForm
 
 
 def projects(request):
@@ -15,3 +16,7 @@ def project(request, pk):
     context = {'project': project}
     return render(request, 'projects/single-project.html', context)
 
+
+def create_project(request):
+    context = {'form': ProjectForm}
+    return render(request, 'projects/project-form.html', context)
