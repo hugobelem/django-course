@@ -82,3 +82,11 @@ def user_profile(request, pk):
                'other_skills': other_skills,}
 
     return render(request, 'users/user-profile.html', context)
+
+
+@login_required(login_url='login')
+def account_user(request):
+    profile = request.user.profile
+
+    context = {'profile': profile}
+    return render(request, 'users/account.html', context)
